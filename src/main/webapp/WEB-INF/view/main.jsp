@@ -79,57 +79,70 @@
             text-align: center;
         }
 
-
-
-
-        .btn-success {
-            width: 130px;
-            height: 40px;
-            color: #fff;
-            border-radius: 5px;
-            padding: 10px 25px;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        #nnavv{
+            float:left;
+            margin-bottom: 10px;
+            width:500px;
+            list-style: none;
+            font-weight: bold;
+        }
+        #nnavv li{
+            float: left;
+            display: block;
+            margin-right: 10px;
             position: relative;
-            display: inline-block;
-            box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-            7px 7px 20px 0px rgba(0,0,0,.1),
-            4px 4px 5px 0px rgba(0,0,0,.1);
-            outline: none;
         }
-        .btn-success {
-            border: none;
-            color: #000;
+        #nnavv li a{
+            background: #333;
+            display: block;
+            padding: 5px;
+            color: #fff;
+            text-decoration:none;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-shadow:1px 1px 1px rgba(0,0,0,0.74);
         }
-        .btn-success:after {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 100%;
-            top: 0;
-            left: 0;
-            direction: rtl;
-            z-index: -1;
-            box-shadow:
-                    -7px -7px 20px 0px #fff9,
-                    -4px -4px 5px 0px #fff9,
-                    7px 7px 20px 0px #0002,
-                    4px 4px 5px 0px #0001;
-            transition: all 0.3s ease;
+        #nnavv li a:hover{
+            text-decoration: underline;
+            background: #6b0c33;
+            color: #fff;
+            background: rgba(108,13,53,0.74);
         }
-        .btn-success:hover {
-            color: #000;
+        #nnavv ul{
+            list-style:none;
+            left:-9999px;
+            opacity:0;
+            -webkit-transition: 0.24s linear opacity;
+            position:absolute;
         }
-        .btn-success:hover:after {
-            left: auto;
-            right: 0;
-            width: 100%;
+        #nnavv ul li{
+            padding-top: 1px;
+            float:none;
         }
-        .btn-success:active {
-            top: 2px;
+        #nnavv ul a{
+            display:block;
+            white-space: nowrap;
+        }
+        #nnavv li:hover ul{
+            left:0;
+            opacity:1;
+        }
+        #nnavv li:hover a{
+            text-decoration:underline;
+            background:rgba(109,15,53,0.74);
+            background:#6b0c36;
+        }
+        #nnavv li:hover ul a{
+            text-decoration:none;
+            -webkit-transition:-webkit-transform 0.077s linear;
+        }
+        #nnavv li:hover ul li a:hover{
+            -moz-transform:scale(1.07);
+            -webkit-transform:scale(1.07);
+            background:#334;
+            background:rgba(50,50,50,0.74);
+            text-decoration:underline;
         }
     </style>
 </head>
@@ -137,9 +150,23 @@
     <div class="bg-image"></div>
 
     <div class="bg-text">
-        <h1 style="color: azure">Fly To Moon</h1>
+        <ul id="nnavv">
+            <li>
+                <a>Toolbar</a>
+                <ul>
+                    <li><a href="/EpamProject_war/login">Login</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/14VKNyvIWI1lifo4JpystN_0wQeb4guRbyGilq4mgJIk/edit?usp=sharing">Tarrifs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Secret Panel</a>
+                <ul>
+                    <li><a href="/EpamProject_war/AdminPanel">Admin Panel</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h1 style="color: azure"> <br>Fly To Moon</h1>
         <h2 style="color:azure">Internet Provider</h2>
-        <a href="/EpamProject_war/login">Login</a>
     </div>
     <div class="bg-text2">
         <table style="color: azure">

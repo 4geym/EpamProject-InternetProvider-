@@ -15,8 +15,7 @@
 </head>
 <body>
 <div style="text-align: center">
-    <h1>Welcome!</h1>
-    <b>${user.name} (${user.email})</b>
+    <h1>Welcome Back! <b>${user.name} (${user.email})</b></h1>
     <br><br>
     <a href="/EpamProject_war/FlyToMoon">Logout</a>
 </div>
