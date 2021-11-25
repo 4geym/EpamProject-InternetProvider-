@@ -19,5 +19,4 @@ public class MainServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/view/main.jsp");
         dispatcher.forward(req, resp);
     }
-
 }

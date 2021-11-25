@@ -83,7 +83,9 @@ public class UserServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String contract = req.getParameter("contract");
-        User newUser = new User(name, email, contract);
+        String password = req.getParameter("password");
+        int balance = Integer.parseInt(req.getParameter("balance"));
+        User newUser = new User(name, email, contract, password, balance);
         userDAO.insertUser(newUser);
         resp.sendRedirect("list");
     }
@@ -110,8 +112,10 @@ public class UserServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String contract = req.getParameter("contract");
+        String password = req.getParameter("password");
+        int balance = Integer.parseInt(req.getParameter("balance"));
 
-        User book = new User(id, name, email, contract);
+        User book = new User(id, name, email, contract, password, balance);
         userDAO.updateUser(book);
         resp.sendRedirect("list");
     }

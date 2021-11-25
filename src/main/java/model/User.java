@@ -5,6 +5,8 @@ public class User {
     private String name;
     private String email;
     private String contract;
+    private String password;
+    private int balance;
 
     public User(int id, String name, String email, String contract) {
         super();
@@ -14,11 +16,40 @@ public class User {
         this.contract = contract;
     }
 
+    public User(int id, String name, String email, String contract, String password, int balance) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.contract = contract;
+        this.password = password;
+        this.balance = balance;
+    }
+
+    public User(String name, String email, String contract, String password, int balance) {
+        super();
+        this.name = name;
+        this.email = email;
+        this.contract = contract;
+        this.password = password;
+        this.balance = balance;
+    }
+
     public User(String name, String email, String contract) {
         super();
         this.name = name;
         this.email = email;
         this.contract = contract;
+    }
+
+    public User(String email, String password) {
+        super();
+        this.email = email;
+        this.password = password;
+    }
+
+    public User() {
+
     }
 
     public int getId() {
@@ -51,5 +82,21 @@ public class User {
 
     public void setContract(String contract) {
         this.contract = contract;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }

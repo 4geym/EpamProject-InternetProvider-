@@ -21,6 +21,8 @@
     <nav class="navbar navbar-expand-md navbar-dark"
          style="background-color: slategray">
         <ul class="navbar-nav">
+            <li><a href="/EpamProject_war/FlyToMoon"
+                   class="nav-link">Main</a></li>
             <li><a href="<%=request.getContextPath()%>/list"
                    class="nav-link">Users</a></li>
         </ul>
@@ -46,6 +48,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contract</th>
+                <th>Password</th>
+                <th>Balance</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -57,6 +61,8 @@
                     <td><c:out value="${user.name}" /></td>
                     <td><c:out value="${user.email}" /></td>
                     <td><c:out value="${user.contract}" /></td>
+                    <td><c:out value="${user.password}" /></td>
+                    <td><c:out value="${user.balance}" /></td>
                     <td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="delete?id=<c:out value='${user.id}' />">Delete</a></td>

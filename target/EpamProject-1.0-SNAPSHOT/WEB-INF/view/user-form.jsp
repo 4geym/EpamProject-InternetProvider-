@@ -71,6 +71,16 @@
                                                             value="<c:out value='${user.contract}' />" class="form-control"
                                                             name="contract" required="required">
                     </fieldset>
+                        <fieldset class="form-group">
+                            <label>User password</label> <input type="text"
+                                                                value="<c:out value='${user.password}' />" class="form-control"
+                                                                name="password" required="required">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>User balance</label> <input type="text"
+                                                                value="<c:out value='${user.balance}' />" class="form-control"
+                                                                name="balance" required="required">
+                        </fieldset>
 
                     <button type="submit" class="btn btn-success">Save</button>
                 </form>

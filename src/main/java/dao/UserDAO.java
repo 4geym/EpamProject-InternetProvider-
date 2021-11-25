@@ -12,12 +12,12 @@ public class UserDAO {
     private String jdbcPassword = "3301";
     private String Driver = "com.mysql.cj.jdbc.Driver";
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO users" + " (name, email, contract) VALUES "
-            + " (?, ?, ?)";
-    private static final String SELECT_USER_BY_ID = "select id, name, email, contract from users where id = ?";
+    private static final String INSERT_USERS_SQL = "INSERT INTO users" + " (name, email, contract, password, balance) VALUES "
+            + " (?, ?, ?, ?, ?)";
+    private static final String SELECT_USER_BY_ID = "select id, name, email, contract, password, balance from users where id = ?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-    private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, contract = ? where id = ?;";
+    private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, contract = ?, password = ?, balance = ? where id = ?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -39,6 +39,8 @@ public class UserDAO {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getContract());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setString(5, String.valueOf(user.getBalance()));
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,7 +62,9 @@ public class UserDAO {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String contract = rs.getString("contract");
-                user = new User(id, name, email, contract);
+                String password = rs.getString("password");
+                int balance = rs.getInt("balance");
+                user = new User(id, name, email, contract, password, balance);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,7 +87,9 @@ public class UserDAO {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String contract = rs.getString("contract");
-                users.add(new User(id, name, email, contract));
+                String password = rs.getString("password");
+                int balance = rs.getInt("balance");
+                users.add(new User(id, name, email, contract, password, balance));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,7 +114,9 @@ public class UserDAO {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getContract());
-            statement.setInt(4, user.getId());
+            statement.setString(4, user.getPassword());
+            statement.setInt(5, user.getBalance());
+            statement.setInt(6, user.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
         }
