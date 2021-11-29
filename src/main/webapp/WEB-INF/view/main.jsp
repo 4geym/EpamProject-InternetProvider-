@@ -51,7 +51,7 @@
         .bg-text {
             background-color: rgb(0,0,0);
             background-color: rgba(0,0,0, 0.4);
-            color: white;
+            color: azure;
             font-weight: bold;
             border: 3px solid #f1f1f1;
             position: absolute;
@@ -66,7 +66,7 @@
         .bg-text2 {
             background-color: rgb(0,0,0);
             background-color: rgba(0,0,0, 0.4);
-            color: white;
+            color: azure;
             font-weight: bold;
             border: 3px solid #f1f1f1;
             position: absolute;
@@ -96,7 +96,7 @@
             background: #333;
             display: block;
             padding: 5px;
-            color: #fff;
+            color: #f0ffff;
             text-decoration:none;
             -moz-border-radius: 2px;
             -webkit-border-radius: 2px;
@@ -105,9 +105,9 @@
         }
         #nnavv li a:hover{
             text-decoration: underline;
-            background: #6b0c33;
-            color: #fff;
-            background: rgba(108,13,53,0.74);
+            background: #004966;
+            color: #f0ffff;
+            background: rgba(13, 40, 108, 0.74);
         }
         #nnavv ul{
             list-style:none;
@@ -130,8 +130,8 @@
         }
         #nnavv li:hover a{
             text-decoration:underline;
-            background:rgba(109,15,53,0.74);
-            background:#6b0c36;
+            background:rgba(13, 40, 108, 0.74);
+            background:#004966;
         }
         #nnavv li:hover ul a{
             text-decoration:none;
@@ -140,8 +140,8 @@
         #nnavv li:hover ul li a:hover{
             -moz-transform:scale(1.07);
             -webkit-transform:scale(1.07);
-            background:#334;
-            background:rgba(50,50,50,0.74);
+            background:#004966;
+            background: rgba(22, 63, 175, 0.74);
             text-decoration:underline;
         }
     </style>

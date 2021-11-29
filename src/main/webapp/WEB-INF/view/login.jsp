@@ -19,10 +19,14 @@
   <script type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
   <style>
+    body{
+      background-color: #333333;
+      color: azure;
+    }
     button {
       width: 130px;
       height: 40px;
-      color: #fff;
+      color: azure;
       border-radius: 5px;
       padding: 10px 25px;
       font-family: 'Lato', sans-serif;
@@ -39,7 +43,7 @@
     }
     button {
       border: none;
-      color: #000;
+      color: azure;
     }
     button:after {
       position: absolute;
@@ -58,7 +62,7 @@
       transition: all 0.3s ease;
     }
     button:hover {
-      color: #000;
+      color: azure;
     }
     button:hover:after {
       left: auto;
@@ -66,6 +70,59 @@
       width: 100%;
     }
     button:active {
+      top: 2px;
+    }
+
+
+    a {
+      text-decoration: none;
+      width: 120px;
+      height: 18px;
+      color: azure;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+      7px 7px 20px 0px rgba(0,0,0,.1),
+      4px 4px 5px 0px rgba(0,0,0,.1);
+      outline: none;
+    }
+    a {
+      border: none;
+      color: azure;
+    }
+    a:after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+      direction: rtl;
+      z-index: -1;
+      box-shadow:
+              -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      color: azure;
+    }
+    a:hover:after {
+      left: auto;
+      right: 0;
+      width: 100%;
+    }
+    a:active {
       top: 2px;
     }
   </style>
@@ -79,10 +136,11 @@
     <br><br>
     <label for="password">Password:</label>
     <input type="password" name="password" size="30" />
-    <br>${message}
     <br><br>
     <button type="submit">Login</button>
   </form>
+  <br>
+  <a href="/EpamProject_war/FlyToMoon">Back to main page</a>
 </div>
 </body>
 <script type="text/javascript">
