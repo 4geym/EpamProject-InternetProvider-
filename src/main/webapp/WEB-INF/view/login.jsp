@@ -137,6 +137,9 @@
     <label for="password">Password:</label>
     <input type="password" name="password" size="30" />
     <br><br>
+    <label for="role">Role:</label>
+    <input name="role" size="30" />
+    <br><br>
     <button type="submit">Login</button>
   </form>
   <br>

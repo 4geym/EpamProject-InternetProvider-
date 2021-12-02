@@ -12,12 +12,12 @@ public class UserDAO {
     private String jdbcPassword = "3301";
     private String Driver = "com.mysql.cj.jdbc.Driver";
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO users" + " (name, email, contract, password, balance) VALUES "
-            + " (?, ?, ?, ?, ?)";
-    private static final String SELECT_USER_BY_ID = "select id, name, email, contract, password, balance from users where id = ?";
+    private static final String INSERT_USERS_SQL = "INSERT INTO users" + " (name, email, contract, password, balance, role) VALUES "
+            + " (?, ?, ?, ?, ?, ?)";
+    private static final String SELECT_USER_BY_ID = "select id, name, email, contract, password, balance, role from users where id = ?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-    private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, contract = ?, password = ?, balance = ? where id = ?;";
+    private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, contract = ?, password = ?, balance = ?, role = ? where id = ?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -41,6 +41,7 @@ public class UserDAO {
             preparedStatement.setString(3, user.getContract());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, String.valueOf(user.getBalance()));
+            preparedStatement.setString(6, user.getRole());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,22 +50,18 @@ public class UserDAO {
     //Select user by id
     public User selectUser(int id) {
         User user = null;
-        //установление соединения - establishing a connection
-        try(Connection connection = getConnection();
-            //создать заявление, используя объект подключения - create a statement using connection  object
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
             preparedStatement.setInt(1, id);
-            //выполнить запрос или обновить запрос - execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
-
-            //обработать объект ResultSet - process the ResultSet object
             while (rs.next()) {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String contract = rs.getString("contract");
                 String password = rs.getString("password");
                 int balance = rs.getInt("balance");
-                user = new User(id, name, email, contract, password, balance);
+                String role = rs.getString("role");
+                user = new User(id, name, email, contract, password, balance, role);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,14 +71,9 @@ public class UserDAO {
     //Select users
     public List<User> selectAllUsers() {
         List<User> users = new ArrayList<>();
-        //установление соединения - establishing a connection
         try(Connection connection = getConnection();
-            //создать заявление, используя объект подключения - create a statement using connection  object
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
-            //выполнить запрос или обновить запрос - execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
-
-            //обработать объект ResultSet - process the ResultSet object
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
@@ -89,7 +81,8 @@ public class UserDAO {
                 String contract = rs.getString("contract");
                 String password = rs.getString("password");
                 int balance = rs.getInt("balance");
-                users.add(new User(id, name, email, contract, password, balance));
+                String role = rs.getString("role");
+                users.add(new User(id, name, email, contract, password, balance, role));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,7 +109,8 @@ public class UserDAO {
             statement.setString(3, user.getContract());
             statement.setString(4, user.getPassword());
             statement.setInt(5, user.getBalance());
-            statement.setInt(6, user.getId());
+            statement.setString(6, user.getRole());
+            statement.setInt(7, user.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
         }

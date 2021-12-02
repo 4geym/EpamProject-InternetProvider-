@@ -5,7 +5,7 @@ import model.User;
 import java.sql.*;
 
 public class LoginDAO {
-    public User checkLogin(String email, String password) throws SQLException,
+    public User checkLogin(String email, String password, String role) throws SQLException,
             ClassNotFoundException {
         String jdbcURL = "jdbc:mysql://localhost:3306/sakila?useSSl=false";
         String dbUser = "root";
@@ -13,10 +13,11 @@ public class LoginDAO {
 
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-        String sql = "SELECT * FROM users WHERE email = ? and password = ?";
+        String sql = "SELECT * FROM users WHERE email = ? and password = ? and role = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, email);
         statement.setString(2, password);
+        statement.setString(3, role);
 
         ResultSet result = statement.executeQuery();
 

@@ -81,6 +81,11 @@
                                                                 value="<c:out value='${user.balance}' />" class="form-control"
                                                                 name="balance" required="required">
                         </fieldset>
+                        <fieldset class="form-group">
+                            <label>User role</label> <input type="text"
+                                                               value="<c:out value='${user.role}' />" class="form-control"
+                                                               name="role" required="required">
+                        </fieldset>
 
                     <button type="submit" class="btn btn-success">Save</button>
                 </form>

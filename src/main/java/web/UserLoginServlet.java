@@ -30,29 +30,33 @@ public class UserLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String role = request.getParameter("role");
 
         LoginDAO userDao = new LoginDAO();
 
         User user = null;
         try {
-            user = userDao.checkLogin(email, password);
+            user = userDao.checkLogin(email, password, role);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         String destPage = "/WEB-INF/view/login.jsp";
 
-            if (user != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                destPage = "/WEB-INF/view/profile.jsp";
-            } else {
-                String message = "~~~~~~~~~~~~";
-                request.setAttribute("message", message);
-            }
+        if (user != null && role.equals("Admin")) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            destPage = "/WEB-INF/view/Admin.jsp";
+        } else if (user != null && role.equals("User")) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            destPage = "/WEB-INF/view/User.jsp";
+        }
+        else {
+            String message = "~~~~~~~~~~~~";
+            request.setAttribute("message", message);
+        }
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
-            dispatcher.forward(request, response);
-
+        RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
+        dispatcher.forward(request, response);
     }
-
 }

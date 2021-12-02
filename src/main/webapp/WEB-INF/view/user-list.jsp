@@ -50,6 +50,7 @@
                 <th>Contract</th>
                 <th>Password</th>
                 <th>Balance</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -63,6 +64,7 @@
                     <td><c:out value="${user.contract}" /></td>
                     <td><c:out value="${user.password}" /></td>
                     <td><c:out value="${user.balance}" /></td>
+                    <td><c:out value="${user.role}" /></td>
                     <td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="delete?id=<c:out value='${user.id}' />">Delete</a></td>

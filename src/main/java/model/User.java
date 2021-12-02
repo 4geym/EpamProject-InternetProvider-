@@ -7,6 +7,7 @@ public class User {
     private String contract;
     private String password;
     private int balance;
+    private String role;
 
     public User(int id, String name, String email, String contract) {
         super();
@@ -50,6 +51,27 @@ public class User {
 
     public User() {
 
+    }
+
+    public User(String name, String email, String contract, String password, int balance, String role) {
+        super();
+        this.name = name;
+        this.email = email;
+        this.contract = contract;
+        this.password = password;
+        this.balance = balance;
+        this.role = role;
+    }
+
+    public User(int id, String name, String email, String contract, String password, int balance, String role) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.contract = contract;
+        this.password = password;
+        this.balance = balance;
+        this.role = role;
     }
 
     public int getId() {
@@ -98,5 +120,13 @@ public class User {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String password) {
+        this.role = role;
     }
 }

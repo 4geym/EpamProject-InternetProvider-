@@ -158,12 +158,6 @@
                     <li><a href="https://docs.google.com/spreadsheets/d/14VKNyvIWI1lifo4JpystN_0wQeb4guRbyGilq4mgJIk/edit?usp=sharing">Tarrifs</a></li>
                 </ul>
             </li>
-            <li>
-                <a>Secret Panel</a>
-                <ul>
-                    <li><a href="/EpamProject_war/AdminPanel">Admin Panel</a></li>
-                </ul>
-            </li>
         </ul>
         <h1 style="color: azure"> <br>Fly To Moon</h1>
         <h2 style="color:azure">Internet Provider</h2>
