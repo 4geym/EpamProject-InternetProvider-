@@ -5,9 +5,8 @@
   Time: 17:04
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -74,7 +73,7 @@
 <body>
 <div style="text-align: center">
     <h1>Welcome!</h1>
-    <h2><br> Your name: <b>${user.name} <br> Your email: ${user.email}</b></h2>
+    <h2>Your name: ${user.name} <br> Your email: ${user.email}</h2>
     <br>
     <a href="/EpamProject_war/FlyToMoon">Logout</a>
 </div>
