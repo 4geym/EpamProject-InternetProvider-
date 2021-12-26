@@ -36,7 +36,7 @@
         }
 
         .bg-image {
-            background-image: url("https://media.istockphoto.com/photos/astronaut-in-the-outer-space-over-the-planet-earth-elements-of-this-picture-id1253695435?k=20&m=1253695435&s=612x612&w=0&h=zwYuaHlUKP1rMHoQXUpCQ4TmuFYv642-2mbkfwCfbNg=");
+            background-image: url("https://knowhow.pp.ua/wp-content/uploads/2020/06/01_astronaut_Yes-Outer-Space-Has-a-Smell%E2%80%94Here%E2%80%99s-What-It-Smells-Like_241509286_Andrey-Armyagov-0620.jpg");
 
             filter: blur(8px);
             -webkit-filter: blur(8px);

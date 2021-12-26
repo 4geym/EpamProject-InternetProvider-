@@ -73,7 +73,7 @@
 <body>
 <div style="text-align: center">
     <h1>Welcome!</h1>
-    <h2><fmt:message key="up.yourName"/> Your name: ${user.name} <br> Your email: ${user.email}</h2>
+    <h2>Your name: ${user.name} <br> Your email: ${user.email}</h2>
     <br>
     <a href="/EpamProject_war/FlyToMoon">Logout</a>
 </div>

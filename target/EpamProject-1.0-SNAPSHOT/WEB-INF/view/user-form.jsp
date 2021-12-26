@@ -41,11 +41,11 @@
 
                     <caption>
                         <h2>
-                            <c:if test="${user != null}">
-                                Edit User
-                            </c:if>
                             <c:if test="${user == null}">
                                 Add New User
+                            </c:if>
+                            <c:if test="${user != null}">
+                                Edit User
                             </c:if>
                         </h2>
                     </caption>
